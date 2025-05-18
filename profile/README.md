@@ -114,7 +114,7 @@
 <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/github/downloads/CodeEditorLand/Land/total?label=Download&color=white&labelColor=white&logoColor=black&logoWidth=0">
 <img src="https://img.shields.io/github/downloads/CodeEditorLand/Land/total?label=Download&color=black&labelColor=black&logoColor=white&logoWidth=0" alt="Download" title="Download">
 </picture>
-</a><br><a href="HTTPS://GitHub.Com/CodeEditorLand/Land" target="_blank"><b>�Land ️</b></a></td></tr><tr><td valign="top" colspan="1"><a href="HTTPS://GitHub.Com/CodeEditorLand/Editor" target="_blank">
+</a><br><a href="HTTPS://GitHub.Com/CodeEditorLand/Land" target="_blank"><b>Land 🏞️</b></a></td></tr><tr><td valign="top" colspan="1"><a href="HTTPS://GitHub.Com/CodeEditorLand/Editor" target="_blank">
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/last-commit/CodeEditorLand/Editor?label=Update&color=black&labelColor=black&logoColor=white&logoWidth=0">
 <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/github/last-commit/CodeEditorLand/Editor?label=Update&color=white&labelColor=white&logoColor=black&logoWidth=0">
@@ -222,8 +222,9 @@
 <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/github/downloads/CodeEditorLand/Land/total?label=Download&color=white&labelColor=white&logoColor=black&logoWidth=0">
 <img src="https://img.shields.io/github/downloads/CodeEditorLand/Land/total?label=Download&color=black&labelColor=black&logoColor=white&logoWidth=0" alt="Download" title="Download">
 </picture>
-</a><br><a href="HTTPS://GitHub.Com/CodeEditorLand/Land" target="_blank"><b>�Land ️</b></a></td></tr><tr><td valign="top" colspan="1"><a href="HTTPS://GitHub.Com/CodeEditorLand/Sun" target="_blank">
+</a><br><a href="HTTPS://GitHub.Com/CodeEditorLand/Land" target="_blank"><b>Land 🏞️</b></a></td></tr><tr><td valign="top" colspan="1"><a href="HTTPS://GitHub.Com/CodeEditorLand/Sun" target="_blank">
 <picture>
+
 <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/last-commit/CodeEditorLand/Sun?label=Update&color=black&labelColor=black&logoColor=white&logoWidth=0">
 <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/github/last-commit/CodeEditorLand/Sun?label=Update&color=white&labelColor=white&logoColor=black&logoWidth=0">
 <img src="https://img.shields.io/github/last-commit/CodeEditorLand/Sun?label=Update&color=black&labelColor=black&logoColor=white&logoWidth=0" alt="Update" title="Update">
@@ -262,11 +263,11 @@
 
 ## Funding
 
-This project is funded through
-[NGI0 Commons Fund](https://nlnet.nl/commonsfund), a fund established by
+This project is funded through [NGI0 Commons
+Fund](https://nlnet.nl/commonsfund), a fund established by
 [NLnet](https://nlnet.nl) with financial support from the European Commission's
-[Next Generation Internet](https://ngi.eu) program. Learn more at the
-[NLnet project page](https://nlnet.nl/project/Land).
+[Next Generation Internet](https://ngi.eu) program. Learn more at the [NLnet
+project page](https://nlnet.nl/project/Land).
 
 | Land                                                                                                                                                   | PlayForm                                                                                                                                                    | NLnet                                                                                         | NGI0 Commons Fund                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
