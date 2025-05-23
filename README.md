@@ -475,14 +475,28 @@ usually includes more debugging information and might build faster by skipping
 some optimizations.
 
 ```sh
-pnpm cross-env Browser=true Bundle=true Clean=true Dependency=Microsoft/VSCode NODE_ENV=development NODE_OPTIONS=--max-old-space-size=16384 pnpm tauri build
+pnpm cross-env \
+	Browser=true \
+	Bundle=true \
+	Clean=true \
+	Dependency=Microsoft/VSCode \
+	NODE_ENV=development \
+	NODE_OPTIONS=--max-old-space-size=16384 \
+	pnpm tauri build
 ```
 
 **Production Build (Release):** This command creates an optimized release
 version of Land, suitable for distribution.
 
 ```sh
-pnpm cross-env Browser=true Bundle=true Clean=true Dependency=Microsoft/VSCode NODE_ENV=production NODE_OPTIONS=--max-old-space-size=16384 pnpm tauri build --release
+pnpm cross-env \
+	Browser=true \
+	Bundle=true \
+	Clean=true \
+	Dependency=Microsoft/VSCode \
+	NODE_ENV=production \
+	NODE_OPTIONS=--max-old-space-size=16384 \
+	pnpm tauri build --release
 ```
 
 **4. Run Land:**
@@ -611,9 +625,8 @@ focused on Path A (`Cocoon` sidecar).
 
 ## Changelog 📜
 
-Stay updated with our progress! See
-[`CHANGELOG.md`](https://github.com/CodeEditorLand/Land/CHANGELOG.md) for a
-history of changes.
+Stay updated with our progress! See [`CHANGELOG.md`](CHANGELOG.md) for a history
+of changes.
 
 ## Funding & Acknowledgements 🙏
 
