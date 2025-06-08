@@ -690,7 +690,7 @@ technologies:
 - and many many more... <!-- TODO: Add a full list -->
 
 We extend our sincere gratitude to the maintainers and contributors of these and
-all the other dependencies we use.
+all the other dependencies we use. ❤️
 
 ---
 
