@@ -314,7 +314,7 @@ concert to deliver a modern editing experience.
 
 To understand how these components interact, please refer to the detailed
 workflow descriptions in
-[`docs/Workflow.md`](https://github.com/CodeEditorLand/tree/Current/docs/Workflow.md).
+[`docs/Workflow.md`](https://github.com/CodeEditorLand/Land/tree/Current/docs/Workflow.md).
 The following provides a table of contents for these essential processes.
 
 ### Table of Contents
@@ -630,7 +630,7 @@ pnpm cross-env \
 This project is released into the public domain under the **Creative Commons CC0
 Universal** license. You are free to use, modify, distribute, and build upon
 this work for any purpose, without any restrictions. For the full legal text,
-see the [`LICENSE`](https://github.com/CodeEditorLand/tree/Current/LICENSE)
+see the [`LICENSE`](https://github.com/CodeEditorLand/Land/tree/Current/LICENSE)
 file.
 
 ---
@@ -638,7 +638,7 @@ file.
 ## Changelog 📜
 
 Stay updated with our progress! See
-[`CHANGELOG.md`](https://github.com/CodeEditorLand/tree/Current/CHANGELOG.md)
+[`CHANGELOG.md`](https://github.com/CodeEditorLand/Land/tree/Current/CHANGELOG.md)
 for a history of changes.
 
 ---
