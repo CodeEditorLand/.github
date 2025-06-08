@@ -243,7 +243,7 @@
 </picture>
 </a><br><a href="https://github.com/CodeEditorLand/Wind" target="_blank"><b>Wind 🍃</b></a></td></tr></table>
 
-# **Land** 🏞️ The Next-Generation Code Editor
+---
 
 <table><tr>
 <td colspan="1"> <h3 align="center"> <picture>
@@ -253,6 +253,10 @@
 </picture> </h3> </td> <td colspan="3" valign="top"> <h3 align="center"> Land 🏞️
 </h3> </td>
 </tr></table>
+
+---
+
+# **Land** 🏞️ The Next-Generation Code Editor
 
 Welcome to **Land**! We are building a high-performance, resource-efficient, and
 cross-platform code editor inspired by the architecture of VS Code, but
@@ -563,8 +567,6 @@ These variables are passed to our build scripts to configure their behavior:
 | `Compile`      | If `true`, this bundles the code into single, self-contained files. This is typically used for production builds to reduce the number of network requests and simplify deployment. When `false` (for `tauri dev`), it allows for faster, incremental builds and hot-reloading. |
 | `NODE_OPTIONS` | Used to increase the default memory limit for Node.js. The bundling process, especially for the entire VS Code platform, can be memory-intensive.                                                                                                                              |
 
----
-
 **Development Build:**
 
 This command creates a full development build of the application. The output is
@@ -582,8 +584,6 @@ pnpm cross-env \
 	pnpm tauri build
 ```
 
----
-
 **Production Build (Release):**
 
 This command creates a fully optimized, minified, and production-ready version
@@ -600,8 +600,6 @@ pnpm cross-env \
 	NODE_OPTIONS=--max-old-space-size=16384 \
 	pnpm tauri build --release
 ```
-
----
 
 ### **4. Run Land for Development**
 
@@ -660,8 +658,6 @@ This project is funded through
 | **Land**                                                                                                                                            | PlayForm                                                                                                                                                 | NLnet                                                                                      | NGI0 Commons Fund                                                                                                                                 |
 | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [<img src="https://raw.githubusercontent.com/CodeEditorLand/Asset/refs/heads/Current/Logo/Land.svg" height="80px" alt="Land">](https://editor.land) | [<img src="https://raw.githubusercontent.com/PlayForm/Asset/refs/heads/Current/Logo/PlayForm.svg" height="80px" alt="PlayForm">](https://playform.cloud) | [<img width="240px" src="https://nlnet.nl/logo/banner.svg" alt="NLnet">](https://nlnet.nl) | [<img width="240px" src="https://nlnet.nl/image/logos/NGI0CommonsFund_tag_black_mono.svg" alt="NGI0 Commons Fund">](https://nlnet.nl/commonsfund) |
-
----
 
 ### Technology Acknowledgements 🙌🏻
 
