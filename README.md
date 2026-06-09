@@ -695,7 +695,7 @@
 	<tr>
 		<td align="left" valign="middle">
 			<h3 align="left">
-				<a href="https://land.playform.cloud" target="_blank">
+				<a href="https://editor.land" target="_blank">
 					<picture>
 						<source media="(prefers-color-scheme: dark)" srcset="https://PlayForm.Cloud/Dark/Image/GitHub/Land.svg" />
 						<source media="(prefers-color-scheme: light)" srcset="https://PlayForm.Cloud/Image/GitHub/Land.svg" />
@@ -706,7 +706,7 @@
 		</td>
 		<td align="left" valign="middle">
 			<h3 align="left">
-				<a href="https://land.playform.cloud" target="_blank">
+				<a href="https://editor.land" target="_blank">
 					Land
 				</a>
 			</h3>
