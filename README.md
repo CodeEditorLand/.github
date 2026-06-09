@@ -1107,7 +1107,7 @@ This project is funded through
 	<tbody>
 		<tr>
 			<td align="left" valign="middle">
-				<a href="https://land.playform.cloud">
+				<a href="https://editor.land">
 					<img width="60" src="https://raw.githubusercontent.com/CodeEditorLand/Asset/refs/heads/Current/Logo/Land.svg" alt="Land" />
 				</a>
 			</td>
