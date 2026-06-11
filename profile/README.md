@@ -3,9 +3,9 @@
 		<td colspan="1">
 			<h3 align="center">
 				<picture>
-					<source media="(prefers-color-scheme: dark)" srcset="https://PlayForm.Cloud/Dark/Image/GitHub/Land.svg" />
-					<source media="(prefers-color-scheme: light)" srcset="https://PlayForm.Cloud/Image/GitHub/Land.svg" />
-					<img width="28" alt="" src="https://PlayForm.Cloud/Image/GitHub/Land.svg" />
+					<source media="(prefers-color-scheme: dark)" srcset="https://editor.land/Dark/Image/GitHub/Land.svg" />
+					<source media="(prefers-color-scheme: light)" srcset="https://editor.land/Image/GitHub/Land.svg" />
+					<img width="28" alt="" src="https://editor.land/Image/GitHub/Land.svg" />
 				</picture>
 			</h3>
 		</td>
@@ -697,9 +697,9 @@
 			<h3 align="left">
 				<a href="https://editor.land" target="_blank">
 					<picture>
-						<source media="(prefers-color-scheme: dark)" srcset="https://PlayForm.Cloud/Dark/Image/GitHub/Land.svg" />
-						<source media="(prefers-color-scheme: light)" srcset="https://PlayForm.Cloud/Image/GitHub/Land.svg" />
-						<img width="28" alt="Land Logo" src="https://PlayForm.Cloud/Image/GitHub/Land.svg" />
+						<source media="(prefers-color-scheme: dark)" srcset="https://editor.land/Dark/Image/GitHub/Land.svg" />
+						<source media="(prefers-color-scheme: light)" srcset="https://editor.land/Image/GitHub/Land.svg" />
+						<img width="28" alt="Land Logo" src="https://editor.land/Image/GitHub/Land.svg" />
 					</picture>
 				</a>
 			</h3>
@@ -741,39 +741,51 @@
 
 Welcome to **Land**! We are building a high-performance, resource-efficient, and
 cross-platform code editor inspired by the architecture of VS Code, but
-re-imagined with a modern, declarative, and type-safe stack. **Land** is
-engineered with **Rust** and **Tauri** for the native backend (`Mountain`) and
-**TypeScript** with **Effect-TS** for all application logic (`Wind` and
-`Cocoon`).
+re-imagined with a native Rust backend and a typed TypeScript service layer.
+**Land** is engineered with **Rust** and **Tauri** for the native backend
+(`Mountain`) and **TypeScript** for all application logic (`Wind`, `Sky`, and
+`Cocoon`). The product name is **FIDDEE**; Land is the repository and build
+system name.
 
 Our vision is to deliver a lightning-fast and deeply reliable editing experience
-by leveraging declarative, effects-based programming across the entire
-application. This architecture ensures that all side effects from filesystem
-operations to UI updates and network requests are handled in a structured,
-testable, and composable way.
+with ~88% VS Code API compatibility, so existing extensions run unmodified while
+the editor itself stays lean, auditable, and open-source.
 
 ---
 
 ## Key Features & Architectural Highlights 🔐
 
-- **Declarative Effect System:** The entire application, from the Rust backend
-  to the TypeScript frontend, is built on an effects-based architecture. We use
-  a custom `ActionEffect` system in Rust and **Effect-TS** in TypeScript. This
-  provides compile-time guarantees for error handling, resource management, and
-  asynchronicity, leading to exceptional stability.
-- **High-Performance Backend:** The `Mountain` backend is written in Rust,
-  providing native speed for all core operations like file I/O, search, and
-  process management.
-- **High-Fidelity Extension Host:** The `Cocoon` sidecar is a Node.js process
-  designed to run existing VS Code extensions with high compatibility. It
-  provides a sandboxed `vscode` API, built with Effect-TS, that communicates
-  with `Mountain` for all native operations.
-- **Modern UI Services:** The `Wind` project is a from-scratch, Effect-TS native
-  re-implementation of the VS Code workbench services, providing a clean,
-  functional, and testable foundation for the UI.
-- **Strongly-Typed IPC:** All communication between the `Mountain` backend and
-  the `Cocoon` extension host is handled via **gRPC**, ensuring a robust,
-  performant, and strongly-typed API contract defined in a `.proto` file.
+- **~88% VS Code API Coverage:** `Cocoon` implements the full `vscode.*`
+  namespace shim — TextEditor, Workspace, SCM, Window, Language Server Protocol,
+  Debug, Tasks, Authentication, TreeView, and more — so the majority of existing
+  VS Code extensions run unmodified.
+- **High-Performance Native Backend:** `Mountain` is written in Rust with Tauri,
+  providing native speed for file I/O, search, process management, and a
+  Tokio-based async runtime. IPC uses a custom `ActionEffect` system for
+  structured error handling and composable side effects.
+- **Node.js Extension Host with Full `vscode` Shim:** `Cocoon` runs standard VS
+  Code extensions in a Node.js sidecar. It communicates with `Mountain` via gRPC
+  (Vine protocol) for all privileged operations and with Sky via Tauri events for
+  UI interactions.
+- **Effect-TS Service Layer:** ~36 Wind services wire the VS Code workbench to
+  Land's native backend. Each service is a typed Effect layer; dependencies are
+  injected at startup rather than imported as globals.
+- **OSC 633 Terminal Shell Integration:** Integrated terminals emit OSC 633
+  sequences for command zone detection, prompt anchoring, and shell-integration
+  features. `ShellIntegration.rs` injects a per-terminal `.zshrc` shim at launch
+  and restores `ZDOTDIR` cleanly on exit.
+- **AES-256-GCM Extension Credential Encryption:** `encryption:encrypt` /
+  `encryption:decrypt` IPC handlers use a machine-stable key derived from the
+  hardware UUID (SHA-256). Extension secrets stored via `context.secrets` are
+  encrypted at rest and never leave the local machine.
+- **Strongly-Typed gRPC IPC:** All `Mountain` ↔ `Cocoon` communication is
+  defined in `Vine.proto` and generated via `prost-build`. The contract is
+  versioned in the `Vine` element and shared by both sides.
+- **Tier-Gated Implementation Selection:** Every subsystem (file system, IPC
+  routing, extension activation, telemetry) is switchable via PascalCase env
+  vars baked into the build. `TierIPC=NodeDeferred` routes calls
+  Mountain-first with a Cocoon fallback; no rebuild required to switch at
+  runtime.
 
 ---
 
@@ -782,12 +794,12 @@ testable, and composable way.
 **Land**'s architecture is composed of several key components that work in
 concert to deliver a modern editing experience.
 
-| Component                       | Role & Key Responsibilities                                                                                                                                                                                                           | Primary Technologies                 |
-| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------- |
-| **`Common` (Rust)**             | **The Abstract Core Library.** Defines the application's "language". It contains all abstract `trait` definitions, the `ActionEffect` system, and Data Transfer Objects (DTOs). It has no knowledge of the final implementation.      | Rust                                 |
-| **`Mountain` (Rust)**           | **The Native Backend.** A Tauri application that **implements** the traits from `Common`. It manages native OS operations, hosts the gRPC server, manages the `Cocoon` process, and communicates with the `Wind` UI via Tauri events. | Rust, Tauri, Tokio, `tonic` (gRPC)   |
-| **`Cocoon` (TypeScript)**       | **The Extension Host.** A Node.js process that provides a high-fidelity `vscode` API to extensions. It's built entirely with Effect-TS and communicates with `Mountain` via gRPC for all privileged operations.                       | TypeScript, Node.js, Effect-TS, gRPC |
-| **`Wind` & `Sky` (TypeScript)** | **The UI Layer.** `Wind` is the Effect-TS native re-implementation of the VS Code workbench services. `Sky` is the UI component layer that renders the state managed by `Wind`. `Wind` communicates with `Mountain` via Tauri events. | TypeScript, Effect-TS                |
+| Component                       | Role & Key Responsibilities                                                                                                                                                                                                                                                    | Primary Technologies              |
+| :------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| **`Common` (Rust)**             | **The Abstract Core Library.** All abstract `trait` definitions, the `ActionEffect` system, and shared DTOs. No concrete logic; all other Rust elements depend on it.                                                                                                          | Rust                              |
+| **`Mountain` (Rust)**           | **The Native Backend.** Tauri application that implements `Common` traits. Owns all native OS operations, the Vine gRPC server, `Cocoon` process lifecycle, IPC dispatch, and the `~/.fiddee/` filesystem root.                                                                | Rust, Tauri, Tokio, tonic (gRPC)  |
+| **`Cocoon` (TypeScript)**       | **The Extension Host.** Node.js sidecar providing ~88% VS Code API coverage. Implements the full `vscode.*` namespace shim. Communicates with `Mountain` via gRPC for privileged operations and with Sky via Tauri events for UI. Boots with an async-first, direct-call model. | TypeScript, Node.js, gRPC         |
+| **`Wind` & `Sky` (TypeScript)** | **The UI Layer.** `Wind` wires ~36 workbench services to Land's native backend using typed Effect layers. `Sky` (Astro 6) is the component layer that renders state. Both communicate with `Mountain` via Tauri IPC events.                                                     | TypeScript, Effect-TS, Astro      |
 
 ---
 
